@@ -8,7 +8,11 @@ import Layout from "../../../organisms/layout";
 
 const getCharacters = page => async () => {
 	try {
-		const { data } = await axios.get(`https://rickandmortyapi.com/api/character/?page=${page}`);
+		const { data } = await axios.get(`https://rickandmortyapi.com/api/character/`, {
+			params: {
+				page,
+			},
+		});
 		return data;
 	} catch (error) {
 		return error;
