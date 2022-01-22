@@ -4,14 +4,14 @@ Feature: Navigation
 	I want a navigation,
 	so that I can navigate the app.
 
-	Scenario: The user wants to navigate to the about page
+	Scenario: The user wants to navigate to the characters page
 
 		Given the user is on the "root" page
-		When the user clicks on "About" in the navigation
-		Then the "about" page is visible
+		When the user clicks on "Characters" in the navigation
+		Then the "characters" page is visible
 
 	Scenario: The user wants to navigate to the root page
 
-		Given the user is on the "about" page
+		Given the user is on the "characters" page
 		When the user clicks on "Home" in the navigation
 		Then the "root" page is visible
