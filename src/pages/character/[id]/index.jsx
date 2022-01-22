@@ -15,14 +15,19 @@ const getCharacter = id => async () => {
 };
 
 const Page = () => {
-	const { query } = useRouter();
-	const id = Number.parseInt(query.id, 10);
-	const { data, error } = useQuery("characters", getCharacter(id));
+	const {
+		query: { id },
+	} = useRouter();
+	const { data, error } = useQuery("character", getCharacter(id));
 	return (
 		<Layout>
 			<Head>
-				<title key="title">My Project</title>
-				<meta key="description" name="description" content="This is my project" />
+				<title key="title">{data.name}</title>
+				<meta
+					key="description"
+					name="description"
+					content={`Some information about ${data.name}`}
+				/>
 			</Head>
 			{error && <div>{error.message}</div>}
 
@@ -44,7 +49,7 @@ export const getServerSideProps = async request => {
 	} = request;
 	const queryClient = new QueryClient();
 
-	await queryClient.prefetchQuery("characters", getCharacter(id));
+	await queryClient.prefetchQuery("character", getCharacter(id));
 
 	return {
 		props: {

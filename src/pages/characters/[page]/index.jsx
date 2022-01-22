@@ -22,8 +22,8 @@ const Page = () => {
 	return (
 		<Layout>
 			<Head>
-				<title key="title">My Project</title>
-				<meta key="description" name="description" content="This is my project" />
+				<title key="title">Characters</title>
+				<meta key="description" name="description" content="Rick and Morty Characters" />
 			</Head>
 			<h1>Characters</h1>
 			{error && <div>{error.message}</div>}
